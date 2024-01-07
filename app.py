@@ -14,6 +14,12 @@ app.register_blueprint(essay_blueprint)
 get_model()
 check_mongo_connection()
 
+try:
+    import tensorflow.compat.v2 as tf
+except ModuleNotFoundError as e:
+    # Optionally, you can print a message or take other actions here
+    pass
+
 # @app.route("/", methods=['GET', 'POST'])
 # def hello_world():
 #     request_type_str = request.method

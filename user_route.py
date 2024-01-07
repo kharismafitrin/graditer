@@ -1,3 +1,4 @@
+import tensorflow as tf
 from flask import Flask, request, jsonify, Blueprint, redirect, url_for, render_template, flash
 from config import mongo, db_user, db_essay, db_sw
 from model_aes import preprocess, f1
@@ -16,6 +17,7 @@ from io import BytesIO
 user_blueprint = Blueprint('users', __name__)
 
 # crud db users
+
 def user_inc_index():
     user = db_user.find_one_and_update(
         {"_id": "user_id"},
